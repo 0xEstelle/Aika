@@ -33,13 +33,13 @@ impl StandardProcess {
     }
 }
 
-
 impl Process for StandardProcess {
     fn run(&mut self, env: &mut Environment) {
         self.process();
         self.add_new_event(env);
     }
 }
+
 
 pub struct FiniteProcess {
     pub process_id: u16,
