@@ -1,6 +1,7 @@
 use std::cell::RefCell;
 use std::cmp::Reverse;
 use std::collections::BinaryHeap;
+use crate::processes::Process;
 
 pub struct Event {
     pub time: u64,
@@ -27,14 +28,10 @@ impl PartialEq for Event {
 
 impl Eq for Event {}
 
-pub trait Process {
-    fn run(&mut self, events: &mut Environment);
-}
-
 pub struct Environment {
-    events: BinaryHeap<Reverse<Event>>,
-    curr_event: u64,
-    max_event: u64,
+    pub events: BinaryHeap<Reverse<Event>>,
+    pub curr_event: u64,
+    pub max_event: u64,
 }
 
 impl Environment {
